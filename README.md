@@ -22,6 +22,8 @@ Execute the script with root privileges:
 sudo ./setup-log4Shell.sh
 ```
 
+**The addresses of the installed applications will be shown at the end of the script**
+
 ## Disclaimer
 
 This script was written only to be able to quickly set up a test environment for the Log4Shell vulnerability (CVE-2021-44228). **Do not use this script on a production server**
