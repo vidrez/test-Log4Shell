@@ -47,7 +47,7 @@ screen -AmdS dockerpoc docker run --network host log4j-shell-poc
 touch autostart.sh
 echo "#!/bin/bash" >> autostart.sh
 echo "screen -AmdS mserver java -Xmx1024M -Xms1024M -jar '$(pwd)/minercfat-server/server.jar' nogui" >> autostart.sh
-ehco "screen -AmdS dockerpoc docker run --network host log4j-shell-poc" >> autostart.sh
+echo "screen -AmdS dockerpoc docker run --network host log4j-shell-poc" >> autostart.sh
 chmod +x autostart.sh
 
 echo " "
