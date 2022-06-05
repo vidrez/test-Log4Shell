@@ -42,6 +42,7 @@ git clone https://github.com/kozmer/log4j-shell-poc.git
 cd ./log4j-shell-poc/
 docker build -t log4j-shell-poc .
 screen -AmdS dockerpoc docker run --network host log4j-shell-poc
+cd ..
 
 #Setup Autostart
 touch autostart.sh
