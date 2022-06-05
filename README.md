@@ -26,11 +26,10 @@ sudo ./setup-log4Shell.sh
 
 ## Autorestart (optional)
 
-To autorestart the docker web app and the minecraft server on system startup/reboot you can add the *autostart.sh* script as a reboot cron by:
+After the setup is completed inside the *setup* folder will be generated an *autostart.sh* script file that you can use to easily restart the docker web app and the minecraft server on system startup/reboot. Also you can add the *autostart.sh* script as a reboot cron by:
 
-1. Set *autostart.sh* executable with `sudo chmod +x autostart.sh`
-2. Execute `sudo crontab -e`
-3. Add at the end of the file the line `@reboot /path/to/autostart.sh` changing '/path/to/autostart.sh' with the actual path to the autoscript
+1. Executing `sudo crontab -e`
+2. Adding at the end of the file the line `@reboot /path/to/autostart.sh` changing '/path/to/autostart.sh' with the actual path to the autostart script
 
 ## Disclaimer
 
