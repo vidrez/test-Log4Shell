@@ -8,15 +8,15 @@ fi
 
 #Setup Generale
 echo "Installing openjdk 18, screen, net-tools"
-sudo apt install openjdk-18-jre-headless screen net-tools -y
+apt install openjdk-18-jre-headless screen net-tools -y
 VARIP=$(hostname -I | awk '{print $1}')
 
 #Setup Docker
 echo "Installing docker-ce"
-sudo apt install apt-transport-https ca-certificates curl software-properties-common -y
+apt install apt-transport-https ca-certificates curl software-properties-common -y
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu jammy stable" -y
-sudo apt install docker-ce -y
+add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu jammy stable" -y
+apt install docker-ce -y
 
 #Setup Minecraft 1.18
 echo "Setting up Minecraft Server 1.18"
@@ -25,7 +25,7 @@ cd ./minecraft-server
 wget https://launcher.mojang.com/v1/objects/3cf24a8694aca6267883b17d934efacc5e44440d/server.jar
 touch eula.txt
 echo "eula=true" >> eula.txt
-sudo chmod +x server.jar
+chmod +x server.jar
 screen -AmdS mserver java -Xmx1024M -Xms1024M -jar server.jar nogui
 cd ..
 
@@ -33,14 +33,20 @@ cd ..
 echo "Setting up Apache Solr 8.11.0"
 wget https://archive.apache.org/dist/lucene/solr/8.11.0/solr-8.11.0.tgz
 tar xzf solr-8.11.0.tgz
-sudo bash solr-8.11.0/bin/install_solr_service.sh solr-8.11.0.tgz
+bash solr-8.11.0/bin/install_solr_service.sh solr-8.11.0.tgz
 
 #Setup Webapp POC
 echo "Setting up vulnerable POC Webapp"
 git clone https://github.com/kozmer/log4j-shell-poc.git
 cd ./log4j-shell-poc/
-sudo docker build -t log4j-shell-poc .
-sudo screen -AmdS dockerpoc docker run --network host log4j-shell-poc
+docker build -t log4j-shell-poc .
+screen -AmdS dockerpoc docker run --network host log4j-shell-poc
+
+echo "Autostart Web app and Minecraft server at system startup"
+CWD=$(pwd)
+chmod +x /etc/rc.d/rc.local
+chmod +x ./autostart.sh
+echo "${CWD}/autostart.sh" >> /etc/rc.d/rc.local
 
 echo " "
 echo "--- Setup ended ---"
