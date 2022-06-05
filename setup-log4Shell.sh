@@ -10,6 +10,7 @@ fi
 echo "Installing openjdk 18, screen, net-tools"
 apt install openjdk-18-jre-headless screen net-tools -y
 VARIP=$(hostname -I | awk '{print $1}')
+mkdir ./setup
 
 #Setup Docker
 echo "Installing docker-ce"
@@ -20,8 +21,8 @@ apt install docker-ce -y
 
 #Setup Minecraft 1.18
 echo "Setting up Minecraft Server 1.18"
-mkdir ./minecraft-server
-cd ./minecraft-server
+mkdir ./setup/minecraft-server
+cd ./setup/minecraft-server
 wget https://launcher.mojang.com/v1/objects/3cf24a8694aca6267883b17d934efacc5e44440d/server.jar
 touch eula.txt
 echo "eula=true" >> eula.txt
