@@ -42,12 +42,6 @@ cd ./log4j-shell-poc/
 docker build -t log4j-shell-poc .
 screen -AmdS dockerpoc docker run --network host log4j-shell-poc
 
-echo "Autostart Web app and Minecraft server at system startup"
-CWD=$(pwd)
-chmod +x /etc/rc.d/rc.local
-chmod +x ./autostart.sh
-echo "${CWD}/autostart.sh" >> /etc/rc.d/rc.local
-
 echo " "
 echo "--- Setup ended ---"
 echo "Minecraft Server 1.18 available at: ${VARIP}"

@@ -24,6 +24,13 @@ sudo ./setup-log4Shell.sh
 
 **The addresses of the installed applications will be shown at the end of the script**
 
+## Autorestart (optional)
+
+To autorestart the docker web app and the minecraft server on system startup/reboot you can add the *autostart.sh* script as a reboot cron by:
+
+1. Set *autostart.sh* executable with `sudo chmod +x autostart.sh`
+2. Add at the end of the file the line `@reboot /path/to/autostart.sh` changing '/path/to/autostart.sh' with the actual path to the autoscript
+
 ## Disclaimer
 
 This script was written only to be able to quickly set up a test environment for the Log4Shell vulnerability (CVE-2021-44228). **Do not use this script on a production server**
