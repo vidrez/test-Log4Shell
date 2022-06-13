@@ -2,11 +2,17 @@
 
 **The execution of this script was tested only on Ubuntu Server 22.04**
 
-The script will setup a vulnerable version of:
+The script will install the following applications:
 
 * Minecraft Server 1.18
 * Apache Solr 8.11.0
-* A Vulnerable Proof-of-concept (POC) Web App made by [kozmer](https://github.com/kozmer/log4j-shell-poc)  
+* A Vulnerable Proof-of-concept (POC) Web App made by [kozmer](https://github.com/kozmer/log4j-shell-poc)
+* A Vulnerable Proof-of-concept (POC) Java application to see how log4j vulnerability + java unsafe deserialization works [vidrez/log4j-deserialization-rce-POC](https://github.com/vidrez/log4j-deserialization-rce-POC)
+
+And the following tools:
+
+* [pimps/JNDI-Exploit-Kit](https://github.com/pimps/JNDI-Exploit-Kit)
+* [pimps/ysoserial-modified](https://github.com/pimps/ysoserial-modified)
 
 ## Instructions
 

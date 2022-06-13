@@ -8,7 +8,7 @@ fi
 
 #Setup Generale
 echo "Installing openjdk 18, screen, net-tools"
-apt install openjdk-18-jre-headless screen net-tools -y
+apt install openjdk-18-jre-headless screen net-tools maven -y
 VARIP=$(hostname -I | awk '{print $1}')
 mkdir ./setup
 
@@ -51,6 +51,16 @@ echo "cd $(pwd)/minecraft-server" >> autostart.sh
 echo "screen -AmdS mserver java -Xmx1024M -Xms1024M -jar server.jar nogui" >> autostart.sh
 echo "screen -AmdS dockerpoc docker run --network host log4j-shell-poc" >> autostart.sh
 chmod +x autostart.sh
+
+#Setup Vulnerable log4j - Java Unsafe deserialization app
+#JNDI Exploit kit
+#ysoserial
+git clone https://github.com/vidrez/log4j-deserialization-rce-POC.git
+git clone https://github.com/pimps/ysoserial-modified.git
+git clone https://github.com/pimps/JNDI-Exploit-Kit.git
+
+cd ./log4j-deserialization-rce-POC/
+mvn package
 
 echo " "
 echo "--- Setup ended ---"
