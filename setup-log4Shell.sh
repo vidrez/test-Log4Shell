@@ -59,8 +59,9 @@ git clone https://github.com/vidrez/log4j-deserialization-rce-POC.git
 git clone https://github.com/pimps/ysoserial-modified.git
 git clone https://github.com/pimps/JNDI-Exploit-Kit.git
 
+sudo update-alternatives --auto java
 cd ./log4j-deserialization-rce-POC/
-mvn package
+sudo mvn package
 
 echo " "
 echo "--- Setup ended ---"
