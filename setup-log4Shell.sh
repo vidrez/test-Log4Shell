@@ -7,8 +7,8 @@ if [[ $UID != 0 ]]; then
 fi
 
 #Setup Generale
-echo "Installing openjdk 18, screen, net-tools, maven, pip"
-apt install openjdk-18-jre-headless screen net-tools maven python3-pip -y
+echo "Installing openjdk 18, screen, net-tools, maven"
+apt install openjdk-18-jre-headless screen net-tools maven -y
 VARIP=$(hostname -I | awk '{print $1}')
 mkdir ./setup
 
@@ -58,7 +58,6 @@ chmod +x autostart.sh
 git clone https://github.com/vidrez/log4j-deserialization-rce-POC.git
 git clone https://github.com/pimps/ysoserial-modified.git
 git clone https://github.com/pimps/JNDI-Exploit-Kit.git
-git clone https://github.com/vidrez/log4j-rce-poc
 
 sudo update-alternatives --auto java
 cd ./log4j-deserialization-rce-POC/
