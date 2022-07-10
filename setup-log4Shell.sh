@@ -7,8 +7,8 @@ if [[ $UID != 0 ]]; then
 fi
 
 #Setup Generale
-echo "Installing openjdk 18, screen, net-tools"
-apt install openjdk-18-jre-headless screen net-tools maven -y
+echo "Installing openjdk 18, screen, net-tools, maven, pip"
+apt install openjdk-18-jre-headless screen net-tools maven python3-pip -y
 VARIP=$(hostname -I | awk '{print $1}')
 mkdir ./setup
 
