@@ -58,6 +58,7 @@ chmod +x autostart.sh
 git clone https://github.com/vidrez/log4j-deserialization-rce-POC.git
 git clone https://github.com/pimps/ysoserial-modified.git
 git clone https://github.com/pimps/JNDI-Exploit-Kit.git
+git clone https://github.com/vidrez/log4j-rce-poc
 
 sudo update-alternatives --auto java
 cd ./log4j-deserialization-rce-POC/
